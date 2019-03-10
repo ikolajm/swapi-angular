@@ -8,8 +8,8 @@
       <option value="starships">Ships</option>
       <option value="films">Films</option>
     </select>
-    <input #searchField (keyup)="onType(dropdown.value, searchField.value)">
-    <button (click)="onSubmit()">Search</button>
+    <input #searchField type="text">
+    <button (click)="onSubmit(dropdown.value, searchField.value)">Search</button>
   </div>
   
   <div *ngIf="_data.results; else noData">
