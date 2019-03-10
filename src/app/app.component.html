@@ -1,0 +1,26 @@
+<div id="search-component">
+    <h4>{{title}}</h4>
+
+  <div>
+    <select #dropdown>
+      <option></option>
+      <option value="people">People</option>
+      <option value="starships">Ships</option>
+      <option value="films">Films</option>
+    </select>
+    <input #searchField (keyup)="onType(dropdown.value, searchField.value)">
+    <button (click)="onSubmit()">Search</button>
+  </div>
+  
+  <div *ngIf="_data.results; else noData">
+     <ul>
+        <li *ngFor="let item of _data.results">
+          {{ item | json }}
+        </li>
+    </ul>
+  </div>
+</div>
+
+<ng-template #noData>
+  <h2>Select a category and term to search by, then click enter to see the results!</h2>
+</ng-template>
